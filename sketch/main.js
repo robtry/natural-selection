@@ -13,15 +13,15 @@
 */
 
 // setup
-const x = 900; //width
-const y = 800; //height
+const x = 1200; //width
+const y = 500; //heighit
 // enviroment
 // *ents
 const init_num_ents = 10; const init_tam_ent  = 25;
 // *foos
-const init_num_food = 30; const tam_food = 10;
+const init_num_food = 15; const tam_food = 10;
 // *frame rates
-const frame_rate = 10;
+const frame_rate = 30;
 const seconds_day = 5;
 // autocalculated
 const time_limit = seconds_day * frame_rate;
@@ -37,8 +37,9 @@ let current_ents = init_num_ents;
 */
 
 function setup() {
-	createCanvas(x,y);
+	createCanvas(x,y).parent('simulation');
 	Enviroment.init(current_ents);
+	addData(generation, current_ents);
 	frameRate(frame_rate);
 	console.log("generación: ", generation, " con: ", init_num_ents, " entidades");
 }
@@ -70,9 +71,24 @@ function draw() {
 		// for(let j = 0; j < ents.length; j++){ line(foods[i].x, foods[i].y, ents[j].x, ents[j].y);}
 	}
 
-	if(frameCount % time_limit === 0){noLoop(); Enviroment.nextGeneration();}
+	if(frameCount % time_limit === 0){ noLoop(); doNextGeneration(); }
 }
 
 function mouseClicked() {
 	//Enviroment.nextGeneration();
+}
+
+/*
+|======================================|
+|=========funciones auxiliares=========|
+|======================================|
+*/
+
+const doNextGeneration = () => {
+	if(current_ents > 0) {
+		Enviroment.nextGeneration();
+		addData(generation, current_ents);
+	} else {
+		console.log("Fin de la simulación");
+	}
 }
