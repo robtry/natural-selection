@@ -2,6 +2,7 @@
 	<head>
 		<title>Rob</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
+		<link rel="stylesheet" href="style.css">
 		<script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 		<script src="./sketch/Entity.js"></script>
@@ -11,14 +12,67 @@
 	</head>
 	<body>
 		<div class="row">
-			<div class="col-xs-8">
-				<div class="box">
-					<div id="simulation"></div>
+			<!-- controles -->
+			<div class="col-xs-12 col-md-1">
+				<div class="box" id="slider_ents">
+					<label for="init_num_ents">Init Ents</label>
+					<input type="text" name="init_num_ents" id="init_num_ents" disabled>
 				</div>
 			</div>
-			<div class="col-xs-4">
+			<div class="col-xs-12 col-md-1">
+				<div class="box" id="slider_food">
+					<label for="init_num_food">Init Food</label>
+					<input type="text" name="init_num_food" id="init_num_food" disabled>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-1">
+				<div class="box" id="frame_rate">
+					<label for="frame_rte">Frame Rate</label>
+					<input type="text" name="frame_rte" id="frame_rte" disabled>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-1"> <div class="box"></div></div>
+			<div class="col-xs-12 col-md-1">
 				<div class="box">
-					<!-- others charts -->
+					<label for="generation">Generation</label>
+					<input type="text" name="generation" id="generation" disabled>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-1">
+				<div class="box">
+					<label for="current_ents">Ents</label>
+					<input type="text" name="current_ents" id="current_ents" disabled>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-1">
+				<div class="box">
+					<label for="current_food">Food</label>
+					<input type="text" name="current_food" id="current_food" disabled>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-1">
+				<div class="box">
+					<label for="status">Status</label>
+					<input type="text" name="status" id="status" disabled>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-1">
+				<div class="box">
+					<label for="progress">Progress</label>
+					<input type="text" name="progress" id="progress" disabled>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-1"> <div class="box"></div></div>
+			<div class="col-xs-12 col-md-1">
+				<div class="box" id="reset_btn">
+					<br>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="box">
+					<div id="simulation"></div>
 				</div>
 			</div>
 		</div>

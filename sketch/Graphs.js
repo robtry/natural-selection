@@ -5,7 +5,19 @@
 */
 
 const ctx = document.getElementById('statistics').getContext('2d');
-const chart = new Chart(ctx, {
+let chart;
+
+function addData(label, data) {
+	chart.data.labels.push(label);
+	chart.data.datasets.forEach((dataset) => {
+			dataset.data.push(data);
+	});
+	chart.update();
+}
+
+function resetGraph(){
+	if(chart){chart.destroy();}
+	chart = new Chart(ctx, {
 		// The type of chart we want to create
 		type: 'line',
 
@@ -24,12 +36,5 @@ const chart = new Chart(ctx, {
 		options: {
 
 		}
-});
-
-function addData(label, data) {
-	chart.data.labels.push(label);
-	chart.data.datasets.forEach((dataset) => {
-			dataset.data.push(data);
 	});
-	chart.update();
 }

@@ -54,7 +54,7 @@ class Enviroment {
 		console.log("sobras: ", leftover)*/
 	
 		current_ents = current_ents - died + newEnts;
-		console.log("generación: ", ++generation, " con: ", current_ents, " entidades");
+		generation++;//console.log("generación: ", ++generation, " con: ", current_ents, " entidades");
 		this.init(current_ents);
 		loop();
 	}
